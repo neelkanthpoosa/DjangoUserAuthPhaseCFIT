@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>CBIT Market Place:LOGIN</title>
+{% endblock %}
+{% block body %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/style.css' %}"><br>
+
+<div class="container">
+	<div class="jumbotron"><h1>CBIT Market Place</h1></div>
+
+
+
+<p>You can log in here</p>
+
+<h2>Login</h2>
+<form method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit"   class="btn btn-primary btn-sm">Login</button>
+</form></link></div>
+{% endblock %}

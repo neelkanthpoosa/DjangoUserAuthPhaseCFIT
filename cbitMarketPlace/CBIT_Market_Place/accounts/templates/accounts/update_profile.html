@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+{% block body %}
+<!-- <style media="screen">
+  body,html{
+    background-image: url("http://www.androidguys.com/wp-content/uploads/2015/12/forest-patrol.jpg");
+  }
+</style> -->
+<div class="container">
+<p>
+	<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{ form.as_p }}
+  {{form1.as_p}}
+<button type="submit"  class="btn btn-primary btn-sm">Confirm</button>
+
+
+</p>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+
+{% block body %}
+
+<style media="screen">
+
+
+		  $font-family:   "Roboto";
+		  $font-size:     14px;
+
+		  $color-primary: #ABA194;
+
+		  * {
+		      margin: 0;
+		      padding: 0;
+		      box-sizing: border-box;
+		  }
+
+		  body {
+		      font-family: $font-family;
+		      font-size: $font-size;
+		      background-size: 200% 100% !important;
+		      animation: move 4s ease infinite;
+		      transform: translate3d(0, 0, 0);
+		      background: linear-gradient(45deg, #d84c33 10%, #dbc993 90%);
+		      height: 100vh
+		  }
+
+
+
+		      &:focus {
+		          background: darken(#fff, 3%);
+		      }
+		  }
+
+		  .btn {
+		      display: block;
+		      width: 100%;
+		      padding: 20px;
+		      font-family: $font-family;
+		      -webkit-appearance: none;
+		      outline: 0;
+		      border: 0;
+		      color: white;
+		      background: $color-primary;
+		      transition: 0.3s;
+
+		      &:hover {
+		          background: darken($color-primary, 5%);
+		      }
+		  }
+
+		  @keyframes NO {
+		    from, to {
+		      -webkit-transform: translate3d(0, 0, 0);
+		      transform: translate3d(0, 0, 0);
+		    }
+
+		    10%, 30%, 50%, 70%, 90% {
+		      -webkit-transform: translate3d(-10px, 0, 0);
+		      transform: translate3d(-10px, 0, 0);
+		    }
+
+		    20%, 40%, 60%, 80% {
+		      -webkit-transform: translate3d(10px, 0, 0);
+		      transform: translate3d(10px, 0, 0);
+		    }
+		  }
+
+		  @keyframes arrive {
+		      0% {
+		          opacity: 0;
+		          transform: translate3d(0, 50px, 0);
+		      }
+
+		      100% {
+		          opacity: 1;
+		          transform: translate3d(0, 0, 0);
+		      }
+		  }
+
+		  @keyframes move {
+		      0% {
+		          background-position: 0 0
+		      }
+
+		      50% {
+		          background-position: 100% 0
+		      }
+
+		      100% {
+		          background-position: 0 0
+		      }
+				}
+</style>
+<div class="container">
+
+<div class="card" style="width: 18rem;">
+{% if user.userprofile.image %}
+  <img class="card-img-top" src="{{ user.userprofile.image.url }}" alt="Card image cap" style="height:33%">
+{% else %}
+<img class="card-img-top" src="http://www.guardian.co.tt/sites/default/files/field/image/fb%20death.png" alt="Card image cap" style="height:30%">
+{% endif %}
+
+
+  <div class="card-body">
+    <h2 class="card-title">{{ user.first_name}}'s Profile</h2>
+    <p class="card-text">{{ user.userprofile.desciption }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Phone:{{ user.userprofile.phone }}</li>
+    <li class="list-group-item">Full Name:{{ user.first_name }}
+		{{ user.last_name }}</li>
+    <li class="list-group-item">Email: {{user.email}}</li>
+  </ul>
+
+</div>
+</div>
+{% endblock %}
